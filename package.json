@@ -1,0 +1,19 @@
+{
+  "name": "profileprint-takehome",
+  "version": "1.0.0",
+  "description": "Take home assignment for profile print - Alexander Koh",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexanderkohzm/profileprint-takehome.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexanderkohzm/profileprint-takehome/issues"
+  },
+  "homepage": "https://github.com/alexanderkohzm/profileprint-takehome#readme"
+}
