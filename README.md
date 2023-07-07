@@ -16,5 +16,66 @@ https://docs.gauge.org/getting_started/installing-gauge.html?os=macos&language=j
 ### Set up Gauge Project
 
 - cmd + shift + p and create a Gauge project. In this case, created a JavaScript project
+- Try running the test (specs) with the command `npm test`. A chromium browser should open and a series of example tests should be performed.
 
-###
+## Testing https://hub.profileprint.ai/auth/register
+
+### Requirement Analysis
+
+This is Profile Print's register page
+
+Nitpick - I notice that a user is able click on register even if the form is not valid (an error notification pops up). I think it'll make more sense visually to disable the register button until the form is valid
+
+**functional requirement (MVP)**
+A user needs to be able to register an account. To do so, the following basic criteria needs to be met
+
+**Fields**
+
+- User should be able to enter values into fields
+- Relevant fields must exist (Name, Display Name, Email, Password, Confirm Password, Country, Contact Number)
+- Required Fields should have a red asterisk next to it
+- Password Field
+- Password fields should have option to hide/unhide value by clicking on the "eye" icon
+- If password is not at least 8 characters long and include 1 number, show error
+- If passwords do not match, show error
+- If passwords do match, do not show eror
+- Country Field
+- If user clicks on Country dropdown, list of countries should appear
+- If user types in string and substring exists, countries should be filtered
+- If user types in string and string does not exist, should show no data available
+- Contact Number Field
+  - If user clicks on the Contact Number dropdown, list of countries should appear
+  - If user types country code, country should appear
+  - If user types country code, countries should be filtered
+  - If user types in invalid country code (e.g. string is not a substring of any country, > longest country code), should show no data available
+
+**Radio Buttons**
+
+- User should be able to click on radio buttons (marketing comms, terms and conditions & privacy policy)
+- Marketing comms should be ticked from start
+- Clicking on the underlined "terms and conditions" will create a pop-up of ProfilePrint's T&C document
+
+**Form Submission**
+
+- Register button should be disabled by default
+- If user tries to submit form when there is an error, error notification will pop up
+- Form should display error messages (e.g. please enter valid email, password is invalid, name is required)
+
+**Alternative Registration**
+
+- User should be directed to Facebook if they want to register with Facebook and click "Continue with Facebook"
+
+**non-functional requirements**
+Outside of the registration form and its functioanlity, there are several other things on the Register page that need to be tested. For example, clicking on Log In should switch the form to a Log In form.
+
+Note - I have NOT decided to proceed with testing for other aspects of the Register page. Specifically, not testing the top nav-bar and the footer section. This is because I have decided with the strategy of separating tests based on functionality. The top nav-bar and footer section should be tested separately.
+
+However, changing language directly impacts the functionality of the form
+
+**Switch to Log In**
+
+- Clicking on the Log In Button should switch to the Log In form
+
+**By continuing, you agree to our Terms and Conditions**
+
+- Clicking on "Terms and Conditions" will generate a new tab with terms and conditions
