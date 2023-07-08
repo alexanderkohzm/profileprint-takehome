@@ -18,6 +18,11 @@ const {
   into,
   textBox,
   evaluate,
+  waitFor,
+  focus,
+  below,
+  dropDown,
+  $,
 } = require("taiko");
 const assert = require("assert");
 const headless = process.env.headless_chrome.toLowerCase() === "true";
@@ -49,10 +54,71 @@ step("Open Register Page", async function () {
   await goto("https://hub.profileprint.ai/auth/register");
 });
 
-step("Type <value> into <field>", async (value, field) => {
-  const inputField = taiko.textbox(field);
-  await write(value, into(inputField));
-  await press("Enter");
+step("Fill up the form with table of values <table>", async (table) => {
+  const defaultInputMethod = async (field, value) => {
+    await click(field);
+    await write(value);
+  };
+
+  const inputWithId = async (field, value, id) => {
+    const targetField = textBox({ id }, below(field));
+    await write(value, targetField);
+  };
+
+  const inputDropdown = async (field, value, id) => {
+    const targetField = textBox({ id }, below(field));
+    await write(value, targetField);
+    await press("Enter");
+  };
+
+  for (const row of table.rows) {
+    const field = row.cells[0];
+    const value = row.cells[1];
+    const inputMethod = row.cells[2];
+    const id = row.cells[3];
+
+    // !IMPORTANT!
+    // Email, ConfirmPassword, Country, and PhoneNumber fields cannot be written into directly
+    // and returns an error. We need to use different methods for different fields
+    // Example Error below
+    // Error: TextBox with label Email is not writable
+
+    // This switch statement is not optimal
+    // There must be a more reliable way of writing into fields
+    // But that'll only be certain after more experience - this is my first time
+    // using Gauge and Taiko
+
+    switch (inputMethod) {
+      case "Default":
+        await defaultInputMethod(field, value);
+        break;
+      case "ById":
+        await inputWithId(field, value, id);
+        break;
+      case "Dropdown":
+        await inputDropdown(field, value, id);
+        break;
+      default:
+        console.log(`Error, no inputMethod passed in`);
+    }
+  }
+});
+
+step("Click on Terms & Condition Radio", async () => {
+  await click("I agree to");
+});
+
+step("Click on Register Button", async () => {
+  await click(
+    button(
+      "Register",
+      below("I agree to terms and conditions and privacy policy")
+    )
+  );
+});
+
+step("Is able to type into email", async () => {
+  await write("email", into(textBox("email")));
 });
 
 step("View <type> tasks", async function (type) {
@@ -65,8 +131,11 @@ step("Complete tasks <table>", async function (table) {
   }
 });
 
-step("Clear all tasks", async function () {
-  await evaluate(() => localStorage.clear());
+step("Clear all entries from fields", async () => {
+  const fields = await taiko.$$(textBox());
+  for (const field of fields) {
+    await write("", into(field));
+  }
 });
 
 step("Must not have <table>", async function (table) {

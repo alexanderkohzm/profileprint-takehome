@@ -35,14 +35,14 @@ A user needs to be able to register an account. To do so, the following basic cr
 - Relevant fields must exist (Name, Display Name, Email, Password, Confirm Password, Country, Contact Number)
 - Required Fields should have a red asterisk next to it
 - Password Field
-- Password fields should have option to hide/unhide value by clicking on the "eye" icon
-- If password is not at least 8 characters long and include 1 number, show error
-- If passwords do not match, show error
-- If passwords do match, do not show eror
+  - Password fields should have option to hide/unhide value by clicking on the "eye" icon
+  - If password is not at least 8 characters long and include 1 number, show error
+  - If passwords do not match, show error
+  - If passwords do match, do not show eror
 - Country Field
-- If user clicks on Country dropdown, list of countries should appear
-- If user types in string and substring exists, countries should be filtered
-- If user types in string and string does not exist, should show no data available
+  - If user clicks on Country dropdown, list of countries should appear
+  - If user types in string and substring exists, countries should be filtered
+  - If user types in string and string does not exist, should show no data available
 - Contact Number Field
   - If user clicks on the Contact Number dropdown, list of countries should appear
   - If user types country code, country should appear
@@ -60,6 +60,8 @@ A user needs to be able to register an account. To do so, the following basic cr
 - Register button should be disabled by default
 - If user tries to submit form when there is an error, error notification will pop up
 - Form should display error messages (e.g. please enter valid email, password is invalid, name is required)
+  - If Email has already been registered, display error notification
+- Successful Form will create a modal (Telling user that a confirmation email has been sent)
 
 **Alternative Registration**
 
