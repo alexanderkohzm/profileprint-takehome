@@ -89,12 +89,6 @@ step("Open Register Page", async function () {
   }
 });
 
-step("Open browser", async function () {
-  await openBrowser({
-    headless: headless,
-  });
-});
-
 step("Close browser", async function () {
   await closeBrowser();
   isBrowserOpen = false;
@@ -383,7 +377,7 @@ step("Click on terms and conditions link at bottom of screen", async () => {
 step("Clicking on Facebook link will redirect to Facebook", async () => {
   click("Facebook");
 
-  await watitFor(2500);
+  await waitFor(2500);
 
   // Appears that ProfilePrint and Facebook are no longer integrated as I'm getting this error:
   //   Error Accessing App
@@ -416,7 +410,7 @@ step(
       switch (inputMethod) {
         case "Default":
           // need to randomise email to make sure it's unique
-          if (field === "Email") {
+          if (field === "Email" || field === "Display Name") {
             const randomString = generateRandomString(6);
             const uniqueEmail = `${randomString}${value}`;
             await defaultInputMethod(field, uniqueEmail);

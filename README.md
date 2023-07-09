@@ -24,8 +24,8 @@ https://docs.gauge.org/getting_started/installing-gauge.html?os=macos&language=j
 ### Run gauge test
 
 - cd into `gauge-tests`
-- npm run test to run all tests
-- go to specific spec document (e.g. `gauge-tests/specs/register.spec`) to run specific scenarios (i.e. Unit tests, Integration tests)
+- `npm run test` to run all tests
+- go to specific spec document (e.g. `gauge-tests/specs/register.spec`) and click on `run scenario` to run specific scenarios (i.e. Unit tests, Integration tests)
 
 ## Testing https://hub.profileprint.ai/auth/register
 
@@ -34,12 +34,12 @@ https://docs.gauge.org/getting_started/installing-gauge.html?os=macos&language=j
 This is Profile Print's register page
 
 **functional requirement (MVP)**
-A user needs to be able to register an account. To do so, the following basic criteria needs to be met
+A user needs to be able to register an account. I have listed out the criteria below.
 
 Crossed out points indicate that unit and integration tests have covered the test cases.
 
-In terms of strategy, I have prioritised the MVP and basic logic to ensure a valid account is created. There are certainly other cases (e.g. password too simple) that I have noticed but
-have not the time to implement
+In terms of strategy, I have prioritised the MVP and basic logic to ensure a valid account is created. There are other cases (e.g. password too simple) that I have noticed but
+have not the time to implement/ Other
 
 **Fields**
 
@@ -56,7 +56,7 @@ have not the time to implement
   - [x] If user types in string and substring exists, countries should be filtered
   - [x] If user types in string and string does not exist, should show no data available
 - [ ] Contact Number Field
-  - If user clicks on the Contact Number dropdown, list of countries should appear
+  - [ ] If user clicks on the Contact Number dropdown, list of countries should appear
   - [x] If user types country code, country should appear
   - [x] If user types country code, countries should be filtered
   - [x] If user types in invalid country code (e.g. string is not a substring of any country, > longest country code), should show no data available

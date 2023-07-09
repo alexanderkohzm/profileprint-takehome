@@ -12,6 +12,7 @@ We should break up our tests into unit and integration tests
 ### Fields 
 
 #### Name 
+* Open Register Page
 * Type into Name field 
 
 #### Display Name 
@@ -55,6 +56,7 @@ We should break up our tests into unit and integration tests
 #### Register with Facebook 
 * Open Register Page
 * Clicking on Facebook link will redirect to Facebook
+* Close browser
 
 
 ## Integration Tests
