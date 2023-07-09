@@ -45,17 +45,17 @@ have not the time to implement
 
 - [x] User should be able to enter values into fields
 - [x] Relevant fields must exist (Name, Display Name, Email, Password, Confirm Password, Country, Contact Number)
-- Required Fields should have a red asterisk next to it
-- Password Field
-  - Password fields should have option to hide/unhide value by clicking on the "eye" icon
+- [ ] Required Fields should have a red asterisk next to it
+- [ ] Password Field
+  - [ ] Password fields should have option to hide/unhide value by clicking on the "eye" icon
   - [x] If password is not at least 8 characters long and include 1 number, show error
   - [x] If passwords do not match, show error
   - [x] If passwords do match, do not show eror
-- Country Field
-  - If user clicks on Country dropdown, list of countries should appear
+- [ ] Country Field
+  - [ ] If user clicks on Country dropdown, list of countries should appear
   - [x] If user types in string and substring exists, countries should be filtered
   - [x] If user types in string and string does not exist, should show no data available
-- Contact Number Field
+- [ ] Contact Number Field
   - If user clicks on the Contact Number dropdown, list of countries should appear
   - [x] If user types country code, country should appear
   - [x] If user types country code, countries should be filtered
@@ -64,17 +64,17 @@ have not the time to implement
 **Radio Buttons**
 
 - [x] User should be able to click on radio buttons (marketing comms, terms and conditions & privacy policy)
-- Marketing comms should be ticked from start
+- [ ] Marketing comms should be ticked from start
 - [x] Clicking on the underlined "terms and conditions" will create a pop-up of ProfilePrint's T&C document
 
 **Form Submission**
 
 - [x] Form should display error messages (e.g. please enter valid email, password is invalid, name is required)
 - [x] Successful Form will create a modal (Telling user that a confirmation email has been sent)
-- Register button should be disabled by default
-- If user tries to submit form when there is an error, error notification will pop up
-  - If Email has already been registered, display error notification
-  - If password is too simple, display error notification
+- [ ] Register button should be disabled by default
+- [ ] If user tries to submit form when there is an error, error notification will pop up
+  - [ ] If Email has already been registered, display error notification
+  - [ ] If password is too simple, display error notification
 
 **Alternative Registration**
 
@@ -89,7 +89,7 @@ However, changing language directly impacts the functionality of the form
 
 **Switch to Log In**
 
-- Clicking on the Log In Button should switch to the Log In form
+- [ ] Clicking on the Log In Button should switch to the Log In form
 
 **By continuing, you agree to our Terms and Conditions**
 
@@ -97,4 +97,4 @@ However, changing language directly impacts the functionality of the form
 
 **Switching languages switches language of form**
 
-- [] Switching languages
+- [ ] Switching languages should switch from English to Bahasa vice versa
