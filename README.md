@@ -69,15 +69,16 @@ have not the time to implement
 
 **Form Submission**
 
+- [x] Form should display error messages (e.g. please enter valid email, password is invalid, name is required)
+- [x] Successful Form will create a modal (Telling user that a confirmation email has been sent)
 - Register button should be disabled by default
 - If user tries to submit form when there is an error, error notification will pop up
-- [x] Form should display error messages (e.g. please enter valid email, password is invalid, name is required)
   - If Email has already been registered, display error notification
-- [x] Successful Form will create a modal (Telling user that a confirmation email has been sent)
+  - If password is too simple, display error notification
 
 **Alternative Registration**
 
-- User should be directed to Facebook if they want to register with Facebook and click "Continue with Facebook"
+- [x] User should be directed to Facebook if they want to register with Facebook and click "Continue with Facebook"
 
 **non-functional requirements**
 Outside of the registration form and its functioanlity, there are several other things on the Register page that need to be tested. For example, clicking on Log In should switch the form to a Log In form.
@@ -92,4 +93,8 @@ However, changing language directly impacts the functionality of the form
 
 **By continuing, you agree to our Terms and Conditions**
 
-- Clicking on "Terms and Conditions" will generate a new tab with terms and conditions
+- [x] Clicking on "Terms and Conditions" will generate a new tab with terms and conditions
+
+**Switching languages switches language of form**
+
+- [] Switching languages

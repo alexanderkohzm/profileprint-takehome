@@ -380,69 +380,85 @@ step("Click on terms and conditions link at bottom of screen", async () => {
   assert.ok(isPdf, "The new tab is not a PDF");
 });
 
-step("Fill up the form with table of values <table>", async (table) => {
-  for (const row of table.rows) {
-    const field = row.cells[0];
-    const value = row.cells[1];
-    const inputMethod = row.cells[2];
-    const id = row.cells[3];
+step("Clicking on Facebook link will redirect to Facebook", async () => {
+  click("Facebook");
 
-    // !IMPORTANT!
-    // Email, ConfirmPassword, Country, and PhoneNumber fields cannot be written into directly
-    // and returns an error. We need to use different methods for different fields
-    // Example Error below
-    // Error: TextBox with label Email is not writable
+  await watitFor(2500);
 
-    // This switch statement is not optimal
-    // There must be a more reliable way of writing into fields
-    // But that'll only be certain after more experience - this is my first time
-    // using Gauge and Taiko
+  // Appears that ProfilePrint and Facebook are no longer integrated as I'm getting this error:
+  //   Error Accessing App
+  // We're sorry, but the application you're trying to use doesn't exist or has been disabled.
+  const facebookTextExists = await text("Log in to Facebook").exists();
 
-    switch (inputMethod) {
-      case "Default":
-        // need to randomise email to make sure it's unique
-        if (field === "Email") {
-          const randomString = generateRandomString(6);
-          const uniqueEmail = `${randomString}${value}`;
-          await defaultInputMethod(field, uniqueEmail);
-        } else {
-          await defaultInputMethod(field, value);
-        }
-        break;
-      case "ById":
-        await inputWithId(field, value, id);
-        break;
-      case "Dropdown":
-        await inputDropdown(field, value, id);
-        break;
-      default:
-        console.log(`Error, no inputMethod passed in`);
-    }
-  }
-
-  // agree to T&C
-  await click("I agree to");
-
-  // click on register
-  waitFor(1000);
-  await click(
-    button(
-      "Register",
-      below("I agree to terms and conditions and privacy policy")
-    )
-  );
-
-  // wait for request to create account
-  waitFor(5000);
-
-  // Registered Successfully modal
-  const successModalHeader = text("Registered Successfully!");
-  const successModalHeaderExists = await successModalHeader.exists();
-  const successMessage = text(`We've sent an email`);
-  const successMessageExists = await successMessage.exists();
-
-  assert(
-    successModalHeaderExists && successMessageExists,
-    "Registration Integration test failed, unable to find success modal header or success message"
-  );
+  assert.ok(facebookTextExists, "Unable to find Log in to Facebook");
 });
+
+step(
+  "Register by filling up the form with table of values <table>",
+  async (table) => {
+    for (const row of table.rows) {
+      const field = row.cells[0];
+      const value = row.cells[1];
+      const inputMethod = row.cells[2];
+      const id = row.cells[3];
+
+      // !IMPORTANT!
+      // Email, ConfirmPassword, Country, and PhoneNumber fields cannot be written into directly
+      // and returns an error. We need to use different methods for different fields
+      // Example Error below
+      // Error: TextBox with label Email is not writable
+
+      // This switch statement is not optimal
+      // There must be a more reliable way of writing into fields
+      // But that'll only be certain after more experience - this is my first time
+      // using Gauge and Taiko
+
+      switch (inputMethod) {
+        case "Default":
+          // need to randomise email to make sure it's unique
+          if (field === "Email") {
+            const randomString = generateRandomString(6);
+            const uniqueEmail = `${randomString}${value}`;
+            await defaultInputMethod(field, uniqueEmail);
+          } else {
+            await defaultInputMethod(field, value);
+          }
+          break;
+        case "ById":
+          await inputWithId(field, value, id);
+          break;
+        case "Dropdown":
+          await inputDropdown(field, value, id);
+          break;
+        default:
+          console.log(`Error, no inputMethod passed in`);
+      }
+    }
+
+    // agree to T&C
+    await click("I agree to");
+
+    // click on register
+    waitFor(1000);
+    await click(
+      button(
+        "Register",
+        below("I agree to terms and conditions and privacy policy")
+      )
+    );
+
+    // wait for request to create account
+    waitFor(5000);
+
+    // Registered Successfully modal
+    const successModalHeader = text("Registered Successfully!");
+    const successModalHeaderExists = await successModalHeader.exists();
+    const successMessage = text(`We've sent an email`);
+    const successMessageExists = await successMessage.exists();
+
+    assert(
+      successModalHeaderExists && successMessageExists,
+      "Registration Integration test failed, unable to find success modal header or success message"
+    );
+  }
+);

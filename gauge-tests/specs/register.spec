@@ -32,7 +32,6 @@ We should break up our tests into unit and integration tests
 * Can select Country with valid substring
 * If no substring for Country, display no data available
 
-
 #### Contact Number 
 * If no substring for Country code, display no data available 
 
@@ -53,11 +52,15 @@ We should break up our tests into unit and integration tests
 * Click on terms and conditions link at bottom of screen 
 * Close browser
 
+#### Register with Facebook 
+* Open Register Page
+* Clicking on Facebook link will redirect to Facebook
+
 
 ## Integration Tests
 
 ### Able to register an account 
-* Fill up the form with table of values
+* Register by filling up the form with table of values
 
 | Field             | Value         | InputMethod  | Id                |
 |-------------------|---------------|--------------|-------------------|
