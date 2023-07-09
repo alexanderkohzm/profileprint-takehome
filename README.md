@@ -41,7 +41,7 @@ A user needs to be able to register an account. I have listed out the criteria b
 Crossed out points indicate that unit and integration tests have covered the test cases.
 
 In terms of strategy, I have prioritised the MVP and basic logic to ensure a valid account is created. There are other cases (e.g. password too simple) that I have noticed but
-have not the time to implement/ Other
+have not the time to implement
 
 **Fields**
 
