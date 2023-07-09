@@ -24,7 +24,9 @@ https://docs.gauge.org/getting_started/installing-gauge.html?os=macos&language=j
 ### Run gauge test
 
 - cd into `gauge-tests`
+- `npm i` to install node modules
 - `npm run test` to run all tests
+  - please note that some tests may take a while to run / the UI feedback is delayed. For example, the password validation tests
 - go to specific spec document (e.g. `gauge-tests/specs/register.spec`) and click on `run scenario` to run specific scenarios (i.e. Unit tests, Integration tests)
 
 ## Testing https://hub.profileprint.ai/auth/register
@@ -46,6 +48,10 @@ have not the time to implement/ Other
 - [x] User should be able to enter values into fields
 - [x] Relevant fields must exist (Name, Display Name, Email, Password, Confirm Password, Country, Contact Number)
 - [ ] Required Fields should have a red asterisk next to it
+- [x] Email Field
+  - [x] Must be unique emails
+- [x] Display Name field
+  - [x] Must be unique Display Name
 - [ ] Password Field
   - [ ] Password fields should have option to hide/unhide value by clicking on the "eye" icon
   - [x] If password is not at least 8 characters long and include 1 number, show error
