@@ -6,6 +6,10 @@ Interesting edge case error:
 
 - if you type into confirm password first and then password, the password does not match error message persists even though the password and confirm password match
 
+Nitpick:
+
+- I notice that a user is able click on register even if the form is not valid (an error notification pops up). I think it'll make more sense visually to disable the register button until the form is valid
+
 ## Steps
 
 ### Install Gauge
@@ -17,10 +21,11 @@ https://docs.gauge.org/getting_started/installing-gauge.html?os=macos&language=j
 - Should display your version (e.g. Gauge Version: 1.5.1). No plugins installed if it's a fresh install
 - Install Gauge VS-Code extension
 
-### Set up Gauge Project
+### Run gauge test
 
-- cmd + shift + p and create a Gauge project. In this case, created a JavaScript project
-- Try running the test (specs) with the command `npm test`. A chromium browser should open and a series of example tests should be performed.
+- cd into `gauge-tests`
+- npm run test to run all tests
+- go to specific spec document (e.g. `gauge-tests/specs/register.spec`) to run specific scenarios (i.e. Unit tests, Integration tests)
 
 ## Testing https://hub.profileprint.ai/auth/register
 
@@ -28,44 +33,47 @@ https://docs.gauge.org/getting_started/installing-gauge.html?os=macos&language=j
 
 This is Profile Print's register page
 
-Nitpick - I notice that a user is able click on register even if the form is not valid (an error notification pops up). I think it'll make more sense visually to disable the register button until the form is valid
-
 **functional requirement (MVP)**
 A user needs to be able to register an account. To do so, the following basic criteria needs to be met
 
+Crossed out points indicate that unit and integration tests have covered the test cases.
+
+In terms of strategy, I have prioritised the MVP and basic logic to ensure a valid account is created. There are certainly other cases (e.g. password too simple) that I have noticed but
+have not the time to implement
+
 **Fields**
 
-- User should be able to enter values into fields
-- Relevant fields must exist (Name, Display Name, Email, Password, Confirm Password, Country, Contact Number)
+- [x] User should be able to enter values into fields
+- [x] Relevant fields must exist (Name, Display Name, Email, Password, Confirm Password, Country, Contact Number)
 - Required Fields should have a red asterisk next to it
 - Password Field
   - Password fields should have option to hide/unhide value by clicking on the "eye" icon
-  - If password is not at least 8 characters long and include 1 number, show error
-  - If passwords do not match, show error
-  - If passwords do match, do not show eror
+  - [x] If password is not at least 8 characters long and include 1 number, show error
+  - [x] If passwords do not match, show error
+  - [x] If passwords do match, do not show eror
 - Country Field
   - If user clicks on Country dropdown, list of countries should appear
-  - If user types in string and substring exists, countries should be filtered
-  - If user types in string and string does not exist, should show no data available
+  - [x] If user types in string and substring exists, countries should be filtered
+  - [x] If user types in string and string does not exist, should show no data available
 - Contact Number Field
   - If user clicks on the Contact Number dropdown, list of countries should appear
-  - If user types country code, country should appear
-  - If user types country code, countries should be filtered
-  - If user types in invalid country code (e.g. string is not a substring of any country, > longest country code), should show no data available
+  - [x] If user types country code, country should appear
+  - [x] If user types country code, countries should be filtered
+  - [x] If user types in invalid country code (e.g. string is not a substring of any country, > longest country code), should show no data available
 
 **Radio Buttons**
 
-- User should be able to click on radio buttons (marketing comms, terms and conditions & privacy policy)
+- [x] User should be able to click on radio buttons (marketing comms, terms and conditions & privacy policy)
 - Marketing comms should be ticked from start
-- Clicking on the underlined "terms and conditions" will create a pop-up of ProfilePrint's T&C document
+- [x] Clicking on the underlined "terms and conditions" will create a pop-up of ProfilePrint's T&C document
 
 **Form Submission**
 
 - Register button should be disabled by default
 - If user tries to submit form when there is an error, error notification will pop up
-- Form should display error messages (e.g. please enter valid email, password is invalid, name is required)
+- [x] Form should display error messages (e.g. please enter valid email, password is invalid, name is required)
   - If Email has already been registered, display error notification
-- Successful Form will create a modal (Telling user that a confirmation email has been sent)
+- [x] Successful Form will create a modal (Telling user that a confirmation email has been sent)
 
 **Alternative Registration**
 
