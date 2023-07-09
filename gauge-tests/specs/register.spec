@@ -1,8 +1,4 @@
-# Register 
-
-This is an example markdown specification file.
-Every heading in this file is a scenario.
-Every bulleted point is a step.
+# Register
 
 To execute this specification, use
 	npm test
@@ -10,8 +6,57 @@ To execute this specification, use
 This is a context step that runs before every scenario
 * Open Register Page
 
-## Able to register an account 
+## Unit Tests 
+We should break up our tests into unit and integration tests
 
+### Fields 
+
+#### Name 
+* Type into Name field 
+
+#### Display Name 
+* Type into Display Name field
+
+#### Emails
+* Type into Email field
+* Email must be a valid email 
+
+#### Passwords
+* Type into Password field and password is valid
+* Type into Confirm Password field
+* Passwords must match
+* Display error message if passwords do not match 
+
+
+#### Country 
+* Can select Country with valid substring
+* If no substring for Country, display no data available
+
+
+#### Contact Number 
+* If no substring for Country code, display no data available 
+
+### Buttons 
+#### Terms & Conditions Radio
+* Click on Terms & Condition Radio
+
+#### Marketing Communications Radio
+* Click on Marketing Communications Radio
+
+#### Required Fields 
+* Display error message if required field is empty
+
+#### Able to get Terms & Conditions document 
+* Click on terms and conditions link
+* Close browser
+* Open Register Page
+* Click on terms and conditions link at bottom of screen 
+* Close browser
+
+
+## Integration Tests
+
+### Able to register an account 
 * Fill up the form with table of values
 
 | Field             | Value         | InputMethod  | Id                |
@@ -19,15 +64,8 @@ This is a context step that runs before every scenario
 | Name              | Test Name     | Default      |                   |
 | Display Name      | Testing123    | Default      |                   |
 | Email             | test@email.com| Default      |                   |
-| Password          | Test1234      | Default      |                   |
-| Confirm Password  | Test1234      | ById         | password-confirm  |
+| Password          | nJhYt#134     | Default      |                   |
+| Confirm Password  | nJhYt#134     | ById         | password-confirm  |
 | Country           | Singapore     | Dropdown     |   country         |
 | Country Code      | +65           | Dropdown     |   input-124       |
 | Contact Number    | 88888888      | ById         |   input-129       |
-
-## Able to click on Terms & Conditions Radio
-
-* Click on Terms & Condition Radio 
-
-## Able to click on Register Button
-* Click on Register Button

@@ -2,6 +2,10 @@
 
 Take home assignment for Profile Print. Automated testing using Gauge and Taiko
 
+Interesting edge case error:
+
+- if you type into confirm password first and then password, the password does not match error message persists even though the password and confirm password match
+
 ## Steps
 
 ### Install Gauge
