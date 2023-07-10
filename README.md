@@ -104,3 +104,13 @@ However, changing language directly impacts the functionality of the form
 **Switching languages switches language of form**
 
 - [ ] Switching languages should switch from English to Bahasa vice versa
+
+## Videos
+
+### Integration Test
+
+<video src="./assets/IntegrationTest.mov" width="800" alt="Integration Test Video">
+
+### Unit Test
+
+<video src="./assets/UnitTests.mov" width="800" alt="Unit Tests Video">
