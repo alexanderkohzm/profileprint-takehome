@@ -109,8 +109,12 @@ However, changing language directly impacts the functionality of the form
 
 ### Integration Test
 
-<video src="./assets/IntegrationTest.mov" width="800" alt="Integration Test Video">
+
+https://github.com/alexanderkohzm/profileprint-takehome/assets/127705458/b260b431-701c-46dc-87e9-b4361fc9984f
+
 
 ### Unit Test
 
-<video src="./assets/UnitTests.mov" width="800" alt="Unit Tests Video">
+
+https://github.com/alexanderkohzm/profileprint-takehome/assets/127705458/973d2dbe-2e11-4d94-b39e-3d9ff48452b3
+
